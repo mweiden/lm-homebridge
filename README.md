@@ -9,16 +9,20 @@ npm install -g /Users/mattweiden/code/lm-homebridge
 ```
 
 ### Configure
-Add an accessory in your Homebridge `config.json`:
+Add the platform in your Homebridge `config.json`:
 
 ```json
 {
-  "accessory": "LaMarzoccoSwitch",
-  "name": "La Marzocco",
-  "serial": "YOUR_SERIAL",
-  "username": "YOUR_USERNAME",
-  "password": "YOUR_PASSWORD",
-  "pollIntervalSeconds": 30
+  "platforms": [
+    {
+      "platform": "LaMarzocco",
+      "name": "La Marzocco",
+      "serial": "YOUR_SERIAL",
+      "username": "YOUR_USERNAME",
+      "password": "YOUR_PASSWORD",
+      "pollIntervalSeconds": 30
+    }
+  ]
 }
 ```
 

@@ -1,12 +1,12 @@
 {
-  "pluginAlias": "LaMarzoccoSwitch",
-  "pluginType": "accessory",
+  "pluginAlias": "LaMarzocco",
+  "pluginType": "platform",
   "singular": true,
   "schema": {
     "type": "object",
     "properties": {
       "name": {
-        "title": "Accessory Name",
+        "title": "Platform Name",
         "type": "string",
         "default": "La Marzocco"
       },
