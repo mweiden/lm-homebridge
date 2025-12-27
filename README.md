@@ -1,4 +1,5 @@
 # lm-homebridge
+[![Tests](https://github.com/mweiden/lm-homebridge/actions/workflows/tests.yml/badge.svg)](https://github.com/mweiden/lm-homebridge/actions/workflows/tests.yml)
 
 Homebridge integration for La Marzocco espresso machines.
 
