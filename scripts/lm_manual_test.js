@@ -27,7 +27,7 @@ function loadOrCreateInstallationKey() {
 
   const installationId = cryptoRandomId();
   const key = generateInstallationKey(installationId);
-  fs.writeFileSync(KEY_PATH, JSON.stringify(key, null, 2));
+  fs.writeFileSync(KEY_PATH, JSON.stringify(key, null, 2), { mode: 0o600 });
   return { key, created: true };
 }
 

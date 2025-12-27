@@ -86,7 +86,9 @@ class LaMarzoccoPlatform {
 
     const installationId = crypto.randomUUID().toLowerCase();
     const key = generateInstallationKey(installationId);
-    fs.writeFileSync(this.installationKeyPath, JSON.stringify(key, null, 2));
+    fs.writeFileSync(this.installationKeyPath, JSON.stringify(key, null, 2), {
+      mode: 0o600,
+    });
     return { key, created: true };
   }
 

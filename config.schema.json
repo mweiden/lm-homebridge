@@ -20,7 +20,8 @@
       },
       "password": {
         "title": "LM Cloud Password",
-        "type": "string"
+        "type": "string",
+        "format": "password"
       },
       "installationKeyPath": {
         "title": "Installation Key Path",
