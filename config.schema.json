@@ -23,10 +23,6 @@
         "type": "string",
         "format": "password"
       },
-      "installationKeyPath": {
-        "title": "Installation Key Path",
-        "type": "string"
-      },
       "pollIntervalSeconds": {
         "title": "Polling Interval (seconds)",
         "type": "integer",

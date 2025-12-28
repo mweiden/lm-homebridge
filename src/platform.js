@@ -39,11 +39,8 @@ class LaMarzoccoPlatform {
     }
 
     const storageRoot = this.api.user.storagePath();
-    const defaultKeyPath = path.join(
-      storageRoot,
-      "lm-homebridge",
-      "installation_key.json"
-    );
+    const pluginDataDir = path.join(storageRoot, "homebridge-la-marzocco");
+    const defaultKeyPath = path.join(pluginDataDir, "installation_key.json");
     this.installationKeyPath =
       this.config.installationKeyPath || defaultKeyPath;
     this.ensureKeyDir();
