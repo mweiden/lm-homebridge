@@ -1,6 +1,6 @@
 "use strict";
 
-const PLUGIN_NAME = "homebridge-lm-homebridge";
+const PLUGIN_NAME = "homebridge-la-marzocco";
 const PLATFORM_NAME = "LaMarzocco";
 
 module.exports = {
