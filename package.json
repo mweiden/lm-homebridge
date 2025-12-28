@@ -12,7 +12,8 @@
     "espresso"
   ],
   "scripts": {
-    "test": "NODE_ENV=test npx jest --coverage test/*.test.js"
+    "test": "NODE_ENV=test npx jest --coverage test/*.test.js",
+    "integration-test": "node scripts/lm_manual_test.js"
   },
   "engines": {
     "node": ">=18.0.0",

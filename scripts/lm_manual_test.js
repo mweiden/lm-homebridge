@@ -54,7 +54,6 @@ function parseArgs() {
 }
 
 async function main() {
-  requireEnv(SERIAL, "LM_SERIAL");
   requireEnv(USERNAME, "LM_USERNAME");
   requireEnv(PASSWORD, "LM_PASSWORD");
 
@@ -72,6 +71,12 @@ async function main() {
     console.log("Registering installation key...");
     await client.registerClient();
     console.log("Registration complete.");
+  }
+
+  if (!SERIAL) {
+    console.log("No LM_SERIAL provided; auth flow check only.");
+    await client.getAccessToken();
+    return;
   }
 
   if (options.power) {

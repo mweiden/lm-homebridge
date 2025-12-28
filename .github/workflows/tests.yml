@@ -31,3 +31,16 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: mweiden/lm-homebridge
+
+      - name: Run integration test (LM cloud)
+        if: ${{ secrets.LM_USERNAME != '' && secrets.LM_PASSWORD != '' }}
+        run: |
+          if [ -n "${{ secrets.LM_INSTALLATION_KEY_JSON }}" ]; then
+            printf '%s' "${{ secrets.LM_INSTALLATION_KEY_JSON }}" > .lm_installation_key.json
+          fi
+          npm run integration-test
+        env:
+          LM_SERIAL: ${{ secrets.LM_SERIAL }}
+          LM_USERNAME: ${{ secrets.LM_USERNAME }}
+          LM_PASSWORD: ${{ secrets.LM_PASSWORD }}
+          LM_KEY_PATH: ${{ github.workspace }}/.lm_installation_key.json
