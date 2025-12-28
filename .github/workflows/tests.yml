@@ -10,6 +10,11 @@ jobs:
     strategy:
       matrix:
         node-version: ["18", "20", "22"]
+    env:
+      LM_SERIAL: ${{ secrets.LM_SERIAL }}
+      LM_USERNAME: ${{ secrets.LM_USERNAME }}
+      LM_PASSWORD: ${{ secrets.LM_PASSWORD }}
+      LM_INSTALLATION_KEY_JSON: ${{ secrets.LM_INSTALLATION_KEY_JSON }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,14 +38,14 @@ jobs:
           slug: mweiden/lm-homebridge
 
       - name: Run integration test (LM cloud)
-        if: ${{ secrets.LM_USERNAME != '' && secrets.LM_PASSWORD != '' }}
+        if: ${{ env.LM_USERNAME != '' && env.LM_PASSWORD != '' }}
         run: |
-          if [ -n "${{ secrets.LM_INSTALLATION_KEY_JSON }}" ]; then
-            printf '%s' "${{ secrets.LM_INSTALLATION_KEY_JSON }}" > .lm_installation_key.json
+          if [ -n "${LM_INSTALLATION_KEY_JSON}" ]; then
+            printf '%s' "${LM_INSTALLATION_KEY_JSON}" > .lm_installation_key.json
           fi
           npm run integration-test
         env:
-          LM_SERIAL: ${{ secrets.LM_SERIAL }}
-          LM_USERNAME: ${{ secrets.LM_USERNAME }}
-          LM_PASSWORD: ${{ secrets.LM_PASSWORD }}
+          LM_SERIAL: ${{ env.LM_SERIAL }}
+          LM_USERNAME: ${{ env.LM_USERNAME }}
+          LM_PASSWORD: ${{ env.LM_PASSWORD }}
           LM_KEY_PATH: ${{ github.workspace }}/.lm_installation_key.json
