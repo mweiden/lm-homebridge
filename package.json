@@ -1,6 +1,6 @@
 {
   "name": "homebridge-la-marzocco",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Homebridge integration for La Marzocco espresso machines",
   "displayName": "La Marzocco",
   "main": "src/index.js",
